@@ -1,0 +1,72 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+    <div style="text-align: center;">
+
+    <!-- Institute Image -->
+    <img src="{% static 'core/images/institute.jpeg' %}" 
+         alt="Institute "
+         style="width:60%; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+
+    <h1 style="color: #1a73e8; margin-top: 20px;">
+        Welcome to the W-TEC INSTITUTE OF TECHNOLOGY
+    </h1>
+
+    <!-- Institute Details -->
+    <p style="font-size: 18px; margin: 10px 0;">
+        <strong>Address:</strong> 123 Tech Road, Your City, Your State, PIN 123456 <br>
+        <strong>Contact:</strong> +91 9876543210 | info@wtec.edu <br>
+        <strong>Website:</strong> <a href="http://www.wtec.edu" target="_blank">www.wtec.edu</a>
+    </p>
+
+    <div style="margin: 20px auto; width: 60%;">
+        <h3>About Us</h3>
+        <p style="font-size: 16px; line-height: 1.6;">
+            W-TEC Institute of Technology is committed to delivering world-class education 
+            in engineering, technology, and innovation. Our mission is to empower students 
+            with technical expertise, creativity, and leadership skills to excel in the modern world.
+        </p>
+    </div>
+</div>
+
+<hr style="margin: 30px 0;">
+
+<div>
+    <h3>Quick Access</h3>
+    <p><strong>Total Students:</strong> {{ students_count }}</p>
+    <p><strong>Total Courses:</strong> {{ courses_count }}</p>
+    <p><strong>Total Attendance Records:</strong> {{ attendance_count }}</p>
+    <ul>
+        <div style="margin: 20px 0;">
+    <a href="{% url 'student_register' %}" 
+       style="display: inline-block; padding: 10px 20px; margin: 5px; 
+              background-color: #4CAF50; color: white; text-decoration: none; 
+              border-radius: 5px;">
+       Register New Student
+    </a>
+
+    <a href="{% url 'student_list' %}" 
+       style="display: inline-block; padding: 10px 20px; margin: 5px; 
+              background-color: #2196F3; color: white; text-decoration: none; 
+              border-radius: 5px;">
+       View All Students
+    </a>
+
+    <a href="{% url 'attendance_list' %}" 
+       style="display: inline-block; padding: 10px 20px; margin: 5px; 
+              background-color: #FF9800; color: white; text-decoration: none; 
+              border-radius: 5px;">
+       View Attendance
+    </a>
+</div>
+
+    </ul>
+</div>
+
+<blockquote style="font-style: italic; color: #555; margin-top: 30px;">
+    "Education is the most powerful weapon which you can use to change the world." - Nelson Mandela
+</blockquote>
+
+{% endblock %}
+{% block title %}Home{% endblock %}

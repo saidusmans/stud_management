@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<h2>Attendance for {{ selected_date }}</h2>
+
+<!-- Date Picker -->
+<form method="get">
+  <label>Select Date:</label>
+  <input type="date" name="date" value="{{ selected_date }}">
+  <button type="submit">View</button>
+</form>
+
+<table border="1" cellpadding="8" cellspacing="0" style="width: 100%; text-align: center;">
+    <thead style="background-color: #f2f2f2;">
+        <tr>
+            <th>Roll No</th>
+            <th>Student Name</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for record in attendance %}
+        <tr>
+            <td>{{ record.student.roll_no }}</td>
+            <td>{{ record.student.name }}</td>
+            <td>{{ record.status }}</td>
+        </tr>
+    {% empty %}
+        <tr>
+            <td colspan="3">No attendance records for this date.</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+{% block title %}Attendance List{% endblock %}
